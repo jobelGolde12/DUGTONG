@@ -1,7 +1,7 @@
 import { MapPin, ArrowRight, Shield, Users, Database, Search, Activity, BarChart3, CheckCircle, XCircle } from 'lucide-react';
 import HeartIcon from './HeartIcon';
 import Orb from './Orb';
-import './MagicBento.css';
+import MagicBento from './MagicBento';
 
 const Welcome = ({ onNavigate }) => {
   return (
@@ -57,140 +57,18 @@ const Welcome = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Rest of Content - MagicBento Themed */}
+      {/* MagicBento Component Section */}
       <section className="dark-section relative">
-        <div className="responsive-container py-16">
-          {/* Purpose Card - MagicBento Style */}
-          <div className="mb-16">
-            <div className="magic-bento-card magic-bento-card--border-glow magic-bento-card--text-autohide glass-card">
-              <div className="magic-bento-card__header">
-                <div className="feature-icon">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
-                <div className="magic-bento-card__label">Mission</div>
-              </div>
-              <div className="magic-bento-card__content">
-                <h2 className="magic-bento-card__title">Core Purpose</h2>
-                <p className="magic-bento-card__description">
-                  Collect, organize, display, and manage basic information of voluntary blood donors 
-                  residing only within Sorsogon Province to ensure efficient matching and timely assistance.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* User Types and Features Grid - MagicBento Style */}
-          <div className="card-grid">
-            {/* User Types */}
-            <div className="magic-bento-card magic-bento-card--border-glow magic-bento-card--text-autohide glass-card">
-              <div className="magic-bento-card__header">
-                <div className="feature-icon">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <div className="magic-bento-card__label">Users</div>
-              </div>
-              <div className="magic-bento-card__content">
-                <h2 className="magic-bento-card__title">System Users</h2>
-                <ul className="user-list">
-                  <li>Patients in need of blood assistance</li>
-                  <li>Authorized hospital personnel</li>
-                  <li>Local health office staff</li>
-                  <li>Blood donation organizers</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Key Features */}
-            <div className="magic-bento-card magic-bento-card--border-glow magic-bento-card--text-autohide glass-card">
-              <div className="magic-bento-card__header">
-                <div className="feature-icon">
-                  <Database className="w-6 h-6 text-white" />
-                </div>
-                <div className="magic-bento-card__label">Features</div>
-              </div>
-              <div className="magic-bento-card__content">
-                <h2 className="magic-bento-card__title">Key Features</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {[
-                    { icon: Users, title: 'Donor Profiles', desc: 'Complete donor information' },
-                    { icon: Search, title: 'Search & Filter', desc: 'Find by type, municipality' },
-                    { icon: Activity, title: 'Real-time Updates', desc: 'Manage availability' },
-                    { icon: BarChart3, title: 'Statistics', desc: 'Donor demographics' }
-                  ].map((feature, index) => (
-                    <div key={index} className="bg-black/30 rounded-xl p-3 border border-white/10">
-                      <div className="flex items-center gap-2 mb-2">
-                        <feature.icon className="w-4 h-4 text-purple-400" />
-                        <h4 className="text-sm font-bold text-white">{feature.title}</h4>
-                      </div>
-                      <p className="text-xs text-gray-400">{feature.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Scope Section - MagicBento Style */}
-          <div className="mt-16">
-            <div className="magic-bento-card magic-bento-card--border-glow glass-card">
-              <div className="magic-bento-card__header">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <XCircle className="w-6 h-6 text-red-400" />
-                </div>
-                <div className="magic-bento-card__label">Scope</div>
-              </div>
-              <div className="magic-bento-card__content">
-                <h2 className="magic-bento-card__title text-center mb-8">System Scope</h2>
-                <div className="grid md:grid-cols-2 gap-8">
-                  {/* Included */}
-                  <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-2xl p-6 border border-green-700/30">
-                    <div className="flex items-center gap-3 mb-4">
-                      <CheckCircle className="w-6 h-6 text-green-400" />
-                      <h3 className="text-xl font-bold text-white">Included</h3>
-                    </div>
-                    <ul className="space-y-3">
-                      {[
-                        'Donor profiling and management',
-                        'Search and filtering capabilities',
-                        'Basic notifications and alerts',
-                        'Statistical summaries',
-                        'Web-based interface only'
-                      ].map((item, index) => (
-                        <li key={index} className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                          <span className="text-gray-300">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Excluded */}
-                  <div className="bg-gradient-to-br from-red-900/30 to-rose-900/30 rounded-2xl p-6 border border-red-700/30">
-                    <div className="flex items-center gap-3 mb-4">
-                      <XCircle className="w-6 h-6 text-red-400" />
-                      <h3 className="text-xl font-bold text-white">Not Included</h3>
-                    </div>
-                    <ul className="space-y-3">
-                      {[
-                        'Mobile application features',
-                        'Blood storage or testing workflows',
-                        'Medical history records',
-                        'External system integrations',
-                        'Production-level optimizations'
-                      ].map((item, index) => (
-                        <li key={index} className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                          <span className="text-gray-300">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <MagicBento 
+          textAutoHide={true}
+          enableStars={true}
+          enableSpotlight={true}
+          enableBorderGlow={true}
+          disableAnimations={false}
+          enableTilt={true}
+          clickEffect={true}
+          enableMagnetism={true}
+        />
       </section>
 
       {/* Footer */}
