@@ -1,0 +1,225 @@
+/* MagicBento.css - Enhanced card styling with dark theme */
+.magic-bento-card {
+  position: relative;
+  background: #060010;
+  border: 1px solid rgba(132, 0, 255, 0.2);
+  border-radius: 20px;
+  padding: 24px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.magic-bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(var(--glow-color, 132, 0, 255), var(--glow-intensity, 0)) 0%,
+    transparent 50%
+  );
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.magic-bento-card:hover::before {
+  opacity: 1;
+}
+
+.magic-bento-card--border-glow {
+  box-shadow: 
+    0 0 20px rgba(var(--glow-color, 132, 0, 255), 0.1),
+    inset 0 0 20px rgba(var(--glow-color, 132, 0, 255), 0.05);
+}
+
+.magic-bento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 40px rgba(var(--glow-color, 132, 0, 255), 0.2),
+    inset 0 0 30px rgba(var(--glow-color, 132, 0, 255), 0.1);
+}
+
+.magic-bento-card__header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 16px;
+}
+
+.magic-bento-card__label {
+  display: inline-block;
+  background: rgba(132, 0, 255, 0.1);
+  color: #8400ff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(132, 0, 255, 0.3);
+}
+
+.magic-bento-card__content {
+  position: relative;
+  z-index: 2;
+}
+
+.magic-bento-card__title {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.magic-bento-card__description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Text autohide on hover */
+.magic-bento-card--text-autohide .magic-bento-card__description {
+  transition: opacity 0.3s ease;
+}
+
+.magic-bento-card--text-autohide:hover .magic-bento-card__description {
+  opacity: 0.8;
+}
+
+/* Bento grid layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .magic-bento-card {
+    padding: 20px;
+  }
+  
+  .magic-bento-card__title {
+    font-size: 20px;
+  }
+  
+  .magic-bento-card__description {
+    font-size: 14px;
+  }
+}
+
+/* Particle animation container */
+.particle-container {
+  isolation: isolate;
+}
+
+/* Spotlight effect styles */
+.global-spotlight {
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Dark theme background */
+.bento-section {
+  background: #000000;
+  min-height: 100vh;
+}
+
+/* Glassmorphism effect */
+.glass-card {
+  background: rgba(6, 0, 16, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(132, 0, 255, 0.2);
+}
+
+/* Feature icon styling */
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: rgba(132, 0, 255, 0.1);
+  border: 1px solid rgba(132, 0, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.feature-icon:hover {
+  background: rgba(132, 0, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* User list styling */
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.user-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(132, 0, 255, 0.8);
+  box-shadow: 0 0 10px rgba(132, 0, 255, 0.5);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #8400ff, #ff006e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dark section styling */
+.dark-section {
+  background: linear-gradient(135deg, #000000, #060010);
+  color: white;
+}
+
+/* Responsive container */
+.responsive-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    padding: 0 24px;
+  }
+}
