@@ -1,7 +1,8 @@
-import { MapPin, ArrowRight, Shield, Users, Database, Search, Activity, BarChart3, CheckCircle, XCircle } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import HeartIcon from './HeartIcon';
 import Orb from './Orb';
 import MagicBento from './MagicBento';
+import AdditionalInfo from './AdditionalInfo'; 
 
 const Welcome = ({ onNavigate }) => {
   return (
@@ -70,6 +71,9 @@ const Welcome = ({ onNavigate }) => {
           enableMagnetism={true}
         />
       </section>
+
+      {/* Additional Info Section */}
+      <AdditionalInfo /> {/* Add this line */}
 
       {/* Footer */}
       <div className="max-w-7xl mx-auto px-4 py-8 text-center">
